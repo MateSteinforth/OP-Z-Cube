@@ -7,7 +7,7 @@ Cleaned source for not so you can easily connect and configure your LEDs to your
 
 # Install
 
-Make sure you have the libraries DMXUSB https://github.com/DaAwesomeP/dmxusb/ and FastLED https://github.com/FastLED/FastLED installed. And yes, you will need a powered and compatible USB Hub or you can just provide your LEDs with external power, whichever you like.
+Make sure you have the libraries DMXUSB https://github.com/DaAwesomeP/dmxusb/ and FastLED https://github.com/FastLED/FastLED installed. And yes, you will need a powered and compatible USB Hub or you can just provide your LEDs with external power, whichever you like. If you want to buy an Arduino Nano, make sure it's using the FTDI FT232 USB chip, for example this one https://amzn.to/3dTeADV
 
 The list of numbers in the beginning of the source code are the LED IDs that you want to be played per one of the 16 OP-Z channels. So if you connect your LEDs via WS2818 or similar controller, each LED will have a number. Just put any combination of numbers in here you want. So for example, if you have 160 LED and you want 10 to light up for each channel, just put 0,1,…10 in the first row, 11,12…20 in the second and so on.
 
