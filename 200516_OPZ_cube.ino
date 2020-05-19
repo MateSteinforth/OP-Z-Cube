@@ -11,7 +11,7 @@
 #include <FastLED.h>
 
 #define DATA_PIN 3 // data pin
-#define BRIGHTNESS 32 // LED brightness
+#define BRIGHTNESS 164 // LED brightness
 #define MAXLED 15 // maximum LEDs per channel
 
 //
@@ -46,23 +46,13 @@ CRGB leds[NUM_LEDS];
 
 // receive a DMX transmission, write data to LEDs and show it
 void showLEDs(int universe, char buffer[512]) {
-  
-  // populate the buffer that keeps track of the colorchannels while iterating over the DMX stream
-  int color[3] = {0, 0, 0};
 
-  // iterating over the DMX stream, put data in buffer, push it out to LED every 3 channels (GRB)
-  for (int index = 0; index < 48; index++) {
-    
-    // shift array and assign current DMX value
-    color[0] = color[1]; color[1] = color[2]; color[2] = buffer[index];
-
-    // if we have three bytes, populate LEDs
-    if ((index + 1) % 3 == 0) {
-      for ( int j = 0; j < MAXLED; ++j ) {
-        byte myBarMain = pgm_read_byte(&(map_array[index / 3][j])); // look up the LED ID in the mapping table
-        if ( myBarMain > 0) { // all elements with 0 are passed, LED IDs are shifted by 1
-          leds[myBarMain-1] = CRGB(color[1], color[0], color[2]); // GRB order
-        }
+  // iterating over the channels
+  for (int index = 0; index < 16; index++) {
+    for ( int j = 0; j < MAXLED; ++j ) {
+      byte myBarMain = pgm_read_byte(&(map_array[index][j])); // look up the LED ID in the mapping table
+      if ( myBarMain > 0) { // all elements with 0 are passed, LED IDs are shifted by 1
+        leds[myBarMain - 1] = CRGB(buffer[index * 3 + 1], buffer[index * 3], buffer[index * 3 + 2]); // GRB order
       }
     }
   }
