@@ -4,6 +4,7 @@ A beautiful Light Object for the Teenage Engineering OP-Z
 New! Gamermode unlocked
 [![OP-Z Cube Gamer Mode Unlocked](http://img.youtube.com/vi/3R2Q1SHl-Lc/0.jpg)](http://www.youtube.com/watch?v=3R2Q1SHl-Lc "OP-Z Cube Gamer Mode Unlocked")
 
+OP-Z controlled
 
 [![](http://img.youtube.com/vi/yUOjW_sgsTw/0.jpg)](http://www.youtube.com/watch?v=yUOjW_sgsTw "OP-Z Light Object")
 
